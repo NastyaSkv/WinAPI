@@ -1,4 +1,4 @@
-#define _CRT_SECURE_NO_WARNINGS
+п»ї#define _CRT_SECURE_NO_WARNINGS
 #include<Windows.h>
 #include<stdio.h>
 #include"resource.h"
@@ -35,10 +35,10 @@ BOOL CALLBACK DlgProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 			CHAR sz_buffer[SIZE] = {};
 			CHAR sz_output_buffer[SIZE] = {};
 			HWND hCombo = GetDlgItem(hwnd, IDC_COMBO1);
-			int i = SendMessage(hCombo, CB_GETCURSEL, 0, 0);    //Получаем номер выделенного
-			SendMessage(hCombo, CB_GETLBTEXT, i, (LPARAM)sz_buffer); //элемента ComboBox
-			//сообщение CB_GETLBTEXT читает выбранный элемент выпадающего списка в буфер:
-			sprintf(sz_output_buffer, "Вы выбрали строку № %i со значением \"%s\".", i, sz_buffer);
+			int i = SendMessage(hCombo, CB_GETCURSEL, 0, 0);    //РџРѕР»СѓС‡Р°РµРј РЅРѕРјРµСЂ РІС‹РґРµР»РµРЅРЅРѕРіРѕ
+			SendMessage(hCombo, CB_GETLBTEXT, i, (LPARAM)sz_buffer); //СЌР»РµРјРµРЅС‚Р° ComboBox
+			//СЃРѕРѕР±С‰РµРЅРёРµ CB_GETLBTEXT С‡РёС‚Р°РµС‚ РІС‹Р±СЂР°РЅРЅС‹Р№ СЌР»РµРјРµРЅС‚ РІС‹РїР°РґР°СЋС‰РµРіРѕ СЃРїРёСЃРєР° РІ Р±СѓС„РµСЂ:
+			sprintf(sz_output_buffer, "Р’С‹ РІС‹Р±СЂР°Р»Рё СЃС‚СЂРѕРєСѓ в„– %i СЃРѕ Р·РЅР°С‡РµРЅРёРµРј \"%s\".", i, sz_buffer);
 			MessageBox(hwnd, sz_output_buffer, "Select item", MB_OK | MB_ICONINFORMATION);
 		}                                                      
 		break;

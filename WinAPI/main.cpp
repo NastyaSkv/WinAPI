@@ -1,9 +1,9 @@
-#include<Windows.h>
+п»ї#include<Windows.h>
 #include"resource.h"
 
 
-CONST CHAR gsz_LOGIN_INVITATION[] = "Введите имя пользователя";
-CONST CHAR gsz_PASSWORD_INVITATION[] = "Введите пароль";
+CONST CHAR gsz_LOGIN_INVITATION[] = "Р’РІРµРґРёС‚Рµ РёРјСЏ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ";
+CONST CHAR gsz_PASSWORD_INVITATION[] = "Р’РІРµРґРёС‚Рµ РїР°СЂРѕР»СЊ";
 
 BOOL CALLBACK DlgProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam);
 
@@ -13,13 +13,13 @@ INT WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInst, LPSTR lpCmdLine, IN
 {
 #ifdef MSG_BOX
 	MessageBox(
-		NULL,   //родительское окно
-		"Привет! Это наше первое сообщение",
-		"Заголовок окна сообщения",
-		MB_YESNOCANCEL | MB_HELP    //набор кнопок
-		| MB_ICONASTERISK           //значок
-		| MB_DEFBUTTON3             //кнопка по умолчанию
-		| MB_SYSTEMMODAL            //WS_EX_TOPMOST -  поверх всех окон     
+		NULL,   //СЂРѕРґРёС‚РµР»СЊСЃРєРѕРµ РѕРєРЅРѕ
+		"РџСЂРёРІРµС‚! Р­С‚Рѕ РЅР°С€Рµ РїРµСЂРІРѕРµ СЃРѕРѕР±С‰РµРЅРёРµ",
+		"Р—Р°РіРѕР»РѕРІРѕРє РѕРєРЅР° СЃРѕРѕР±С‰РµРЅРёСЏ",
+		MB_YESNOCANCEL | MB_HELP    //РЅР°Р±РѕСЂ РєРЅРѕРїРѕРє
+		| MB_ICONASTERISK           //Р·РЅР°С‡РѕРє
+		| MB_DEFBUTTON3             //РєРЅРѕРїРєР° РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ
+		| MB_SYSTEMMODAL            //WS_EX_TOPMOST -  РїРѕРІРµСЂС… РІСЃРµС… РѕРєРѕРЅ     
 	);
 #endif // MSG_BOX
 
@@ -32,24 +32,24 @@ BOOL CALLBACK DlgProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 {
 	switch (uMsg)
 	{
-	case WM_INITDIALOG:   //создание элементов окна
+	case WM_INITDIALOG:   //СЃРѕР·РґР°РЅРёРµ СЌР»РµРјРµРЅС‚РѕРІ РѕРєРЅР°
 	{
 		HICON hIcon = LoadIcon(GetModuleHandle(NULL), (LPSTR)IDI_ICON1);
 		SendMessage(hwnd, WM_SETICON, 0, (LPARAM)hIcon);
 
-		//Получаем обработчики окна текстовых полей
-		//  HWND - Hander to Window (обработчик окна)
+		//РџРѕР»СѓС‡Р°РµРј РѕР±СЂР°Р±РѕС‚С‡РёРєРё РѕРєРЅР° С‚РµРєСЃС‚РѕРІС‹С… РїРѕР»РµР№
+		//  HWND - Hander to Window (РѕР±СЂР°Р±РѕС‚С‡РёРє РѕРєРЅР°)
 		HWND hEditLogin = GetDlgItem(hwnd, IDC_EDIT_LOGIN);
 		HWND hEditPassword = GetDlgItem(hwnd, IDC_EDIT_PASSWORD);
 
-		//Для того чтобы установить текст в окна hEditLogin и hEditPassword,
-		//нужно отправить сообщение этим окнам
+		//Р”Р»СЏ С‚РѕРіРѕ С‡С‚РѕР±С‹ СѓСЃС‚Р°РЅРѕРІРёС‚СЊ С‚РµРєСЃС‚ РІ РѕРєРЅР° hEditLogin Рё hEditPassword,
+		//РЅСѓР¶РЅРѕ РѕС‚РїСЂР°РІРёС‚СЊ СЃРѕРѕР±С‰РµРЅРёРµ СЌС‚РёРј РѕРєРЅР°Рј
 		SendMessage(hEditLogin, WM_SETTEXT, 0, (LPARAM)gsz_LOGIN_INVITATION);
 		SendMessage(hEditPassword, WM_SETTEXT, 0, (LPARAM)gsz_PASSWORD_INVITATION);
 	}
 	break;
 
-	case WM_COMMAND:      //обработка команд нажатия кнопок
+	case WM_COMMAND:      //РѕР±СЂР°Р±РѕС‚РєР° РєРѕРјР°РЅРґ РЅР°Р¶Р°С‚РёСЏ РєРЅРѕРїРѕРє
 		switch (LOWORD(wParam))
 		{
 		case IDC_EDIT_LOGIN:
@@ -73,25 +73,25 @@ BOOL CALLBACK DlgProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 			break;
 		case IDC_BUTTON_COPY:
 		{
-			//Создаем буфер, через который будет производиться копирование
+			//РЎРѕР·РґР°РµРј Р±СѓС„РµСЂ, С‡РµСЂРµР· РєРѕС‚РѕСЂС‹Р№ Р±СѓРґРµС‚ РїСЂРѕРёР·РІРѕРґРёС‚СЊСЃСЏ РєРѕРїРёСЂРѕРІР°РЅРёРµ
 			CONST INT SIZE = 256;
 			CHAR buffer[SIZE] = {};
-			//Получаем окна тактовых полей, для того, чтобы им можно было отправлять сообщения
+			//РџРѕР»СѓС‡Р°РµРј РѕРєРЅР° С‚Р°РєС‚РѕРІС‹С… РїРѕР»РµР№, РґР»СЏ С‚РѕРіРѕ, С‡С‚РѕР±С‹ РёРј РјРѕР¶РЅРѕ Р±С‹Р»Рѕ РѕС‚РїСЂР°РІР»СЏС‚СЊ СЃРѕРѕР±С‰РµРЅРёСЏ
 			HWND hEditLogin = GetDlgItem(hwnd, IDC_EDIT_LOGIN);
 			HWND hEditPassword = GetDlgItem(hwnd, IDC_EDIT_PASSWORD);
-			//Читаем содержимое тактового поля LOGIN:
+			//Р§РёС‚Р°РµРј СЃРѕРґРµСЂР¶РёРјРѕРµ С‚Р°РєС‚РѕРІРѕРіРѕ РїРѕР»СЏ LOGIN:
 			SendMessage(hEditLogin, WM_GETTEXT, SIZE, (LPARAM)buffer);
-			//Загружаем текст из буфера в поле PASSWORD:
+			//Р—Р°РіСЂСѓР¶Р°РµРј С‚РµРєСЃС‚ РёР· Р±СѓС„РµСЂР° РІ РїРѕР»Рµ PASSWORD:
 			SendMessage(hEditPassword, WM_SETTEXT, 0, (LPARAM)buffer);
 		}
 		break;
 
-		case IDOK:MessageBox(NULL, "Была нажата кнопка ОК", "Info", MB_OK | MB_ICONINFORMATION); break;
+		case IDOK:MessageBox(NULL, "Р‘С‹Р»Р° РЅР°Р¶Р°С‚Р° РєРЅРѕРїРєР° РћРљ", "Info", MB_OK | MB_ICONINFORMATION); break;
 
 		case IDCANCEL: EndDialog(hwnd, 0);
 		}
 		break;
-	case WM_CLOSE:        //закрытие окна
+	case WM_CLOSE:        //Р·Р°РєСЂС‹С‚РёРµ РѕРєРЅР°
 		EndDialog(hwnd, 0);
 	}
 	return FALSE;
