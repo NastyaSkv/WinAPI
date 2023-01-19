@@ -132,16 +132,27 @@ INT CALLBACK WndProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 					NULL, "BUTTON", sz_digit,
 					WS_CHILD | WS_VISIBLE | BS_PUSHBUTTON,
 					g_START_X + (g_BUTTON_SIZE + g_INTERVAL) * j,
-					g_START_Y + g_DISPLAY_HEIGHT + g_INTERVAL * 2 + (g_BUTTON_SIZE + g_INTERVAL) * (2 - i),
+					g_START_Y + g_DISPLAY_HEIGHT + g_INTERVAL + (g_BUTTON_SIZE + g_INTERVAL) * (2 - i),
 					g_BUTTON_SIZE, g_BUTTON_SIZE,
 					hwnd,
-					(HMENU)IDC_BUTTON_7,
+					(HMENU)IDC_BUTTON_0+digit,
 					GetModuleHandle(NULL),
 					NULL
 				);
 				digit++;
 			}
 		}
+		CreateWindowEx
+		(
+			NULL, "BUTTON", "0",
+			WS_CHILDWINDOW | WS_VISIBLE | BS_PUSHBUTTON,
+			g_START_X, g_START_Y + g_DISPLAY_HEIGHT + g_INTERVAL + (g_BUTTON_SIZE + g_INTERVAL) * 3,
+			g_BUTTON_SIZE * 2 + g_INTERVAL, g_BUTTON_SIZE,
+			hwnd,
+			(HMENU)IDC_BUTTON_0,
+			GetModuleHandle(NULL),
+			NULL
+		);
 	}
 		break;
 	case WM_COMMAND:break;
