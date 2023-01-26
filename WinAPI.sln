@@ -11,6 +11,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ListBox", "ListBox\ListBox.
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MainWindow", "MainWindow\MainWindow.vcxproj", "{F0DF75D6-F028-418B-8572-BCEA5083C4A7}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DesignPatterns", "DesignPatterns\DesignPatterns.vcxproj", "{57B07C12-500B-431E-97F6-246991D6FAB7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -51,6 +53,14 @@ Global
 		{F0DF75D6-F028-418B-8572-BCEA5083C4A7}.Release|x64.Build.0 = Release|x64
 		{F0DF75D6-F028-418B-8572-BCEA5083C4A7}.Release|x86.ActiveCfg = Release|Win32
 		{F0DF75D6-F028-418B-8572-BCEA5083C4A7}.Release|x86.Build.0 = Release|Win32
+		{57B07C12-500B-431E-97F6-246991D6FAB7}.Debug|x64.ActiveCfg = Debug|x64
+		{57B07C12-500B-431E-97F6-246991D6FAB7}.Debug|x64.Build.0 = Debug|x64
+		{57B07C12-500B-431E-97F6-246991D6FAB7}.Debug|x86.ActiveCfg = Debug|Win32
+		{57B07C12-500B-431E-97F6-246991D6FAB7}.Debug|x86.Build.0 = Debug|Win32
+		{57B07C12-500B-431E-97F6-246991D6FAB7}.Release|x64.ActiveCfg = Release|x64
+		{57B07C12-500B-431E-97F6-246991D6FAB7}.Release|x64.Build.0 = Release|x64
+		{57B07C12-500B-431E-97F6-246991D6FAB7}.Release|x86.ActiveCfg = Release|Win32
+		{57B07C12-500B-431E-97F6-246991D6FAB7}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
